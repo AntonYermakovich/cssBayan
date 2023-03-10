@@ -9,3 +9,55 @@ body {
     min-height: 100vh;
     font-family: sans-serif;
 }
+
+img {
+    width: 100%;
+}
+
+.accordion-list {
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.accordion-list:hover label::after {
+    opacity: 1;
+}
+
+.accordion {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #ccc;
+    position: relative;
+}
+
+label {
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+label::after {
+    content: '+';
+    font-size: 20px;
+    font-weight: bold;
+    transition: .15s;
+    opacity: 0;
+}
+
+.accordion__body {
+    overflow: hidden;
+    max-height: 0;
+    transition: .25s;
+}
+
+.accordion__inner {
+    padding: 20px;
+}
+
+.accordion input:checked~.accordion__body {
+    max-height: 200px;
+}
