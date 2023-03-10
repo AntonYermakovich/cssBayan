@@ -19,7 +19,9 @@ img {
     margin: 20px auto;
 }
 
-.accordion-list:hover label::after {
+.accordion-list:hover label::after,
+.accordion-list:hover label {
+    color: black;
     opacity: 1;
 }
 
@@ -38,6 +40,7 @@ label {
     padding: 10px;
     display: flex;
     justify-content: space-between;
+    color: blue;
 }
 
 label::after {
@@ -51,13 +54,24 @@ label::after {
 .accordion__body {
     overflow: hidden;
     max-height: 0;
-    transition: .25s;
+    transition: .5s;
 }
 
 .accordion__inner {
     padding: 20px;
 }
 
-.accordion input:checked~.accordion__body {
-    max-height: 200px;
+.accordion input:checked~.accordion__body,
+label:hover~.accordion__body {
+    max-height: 100vh;
+}
+
+.accordion input:checked~label {
+    color: black;
+}
+
+input:checked~label::after,
+label:hover::after {
+    transform: rotate(45deg);
+
 }
