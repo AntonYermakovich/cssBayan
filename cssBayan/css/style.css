@@ -57,12 +57,18 @@ label::after {
     transition: .5s;
 }
 
-.accordion__inner {
+.accordion__inner::after {
+    content: none;
+}
+
+.accordion__img {
     padding: 20px;
+    width: 300px;
+    margin: auto;
 }
 
 .accordion input:checked~.accordion__body,
-label:hover~.accordion__body {
+.accordion:hover .accordion__body {
     max-height: 100vh;
 }
 
@@ -70,8 +76,12 @@ label:hover~.accordion__body {
     color: black;
 }
 
-input:checked~label::after,
-label:hover::after {
-    transform: rotate(45deg);
+.accordion:active label,
+.accordion:active label::after {
+    color: blue;
+}
 
+input:checked~label::after,
+.accordion:hover label::after {
+    transform: rotate(45deg);
 }
